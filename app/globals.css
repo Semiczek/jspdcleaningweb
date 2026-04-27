@@ -1,26 +1,508 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+* {
+  box-sizing: border-box;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  margin: 0;
+  background: #f5f7fa;
+  color: #111827;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.page {
+  min-height: 100vh;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(245, 247, 250, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #d9e0e7;
+}
+
+.topbarInner {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #0f4c97;
+}
+
+.nav {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.topbarRight {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.langSwitcher {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.langLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  min-height: 36px;
+  padding: 0 10px;
+  border-radius: 10px;
+  border: 1px solid #cfd8e3;
+  background: #ffffff;
+  color: #1f2937;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.langLinkActive {
+  background: #0f4c97;
+  color: #ffffff;
+  border-color: #0f4c97;
+}
+
+.hero {
+  padding: 60px 0 56px;
+}
+
+.heroBlue {
+  background: linear-gradient(180deg, #f7f9fc 0%, #eef3f8 100%);
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(380px, 0.92fr);
+  gap: 40px;
+  align-items: center;
+}
+
+.badge {
+  display: inline-block;
+  margin-bottom: 18px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid #cfd8e3;
+  background: #ffffff;
+  color: #0f4c97;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.hero h1,
+.pageTitle {
+  margin: 0 0 18px;
+  font-size: 52px;
+  line-height: 1.03;
+  letter-spacing: -0.05em;
+  color: #0f172a;
+  max-width: 760px;
+}
+
+.heroText,
+.sectionText {
+  max-width: 720px;
+  margin: 0 0 24px;
+  color: #475569;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.heroButtons,
+.detailActions,
+.centerRow {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.centerRow {
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.btnPrimary,
+.btnSecondary,
+.panelLink,
+.textLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 22px;
+  border-radius: 12px;
+  font-weight: 700;
+}
+
+.btnPrimary {
+  background: #0f4c97;
+  color: #ffffff;
+  border: none;
+}
+
+.btnSecondary {
+  background: #ffffff;
+  color: #111827;
+  border: 1px solid #cfd8e3;
+}
+
+.textLink {
+  padding: 0;
+  min-height: auto;
+  border-radius: 0;
+  color: #0f4c97;
+}
+
+.heroHighlights {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.heroHighlight {
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid #d7dfe8;
+  color: #1f2937;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+.heroPanel {
+  border-radius: 24px;
+  padding: 36px 34px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #0f4c97 0%, #0a3569 100%);
+  box-shadow: 0 20px 50px rgba(15, 76, 151, 0.18);
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.panelLabel {
+  margin-bottom: 14px;
+  font-size: 14px;
+  font-weight: 700;
+  opacity: 0.8;
+}
+
+.heroPanel h2 {
+  margin: 0 0 14px;
+  font-size: 30px;
+  line-height: 1.14;
+  letter-spacing: -0.03em;
+}
+
+.heroPanel p {
+  margin: 0 0 22px;
+  font-size: 17px;
+  line-height: 1.7;
+  opacity: 0.94;
+  max-width: 480px;
+}
+
+.panelLink {
+  justify-content: flex-start;
+  padding: 0;
+  min-height: auto;
+  color: #ffffff;
+}
+
+.section,
+.servicesListingSection,
+.serviceDetailSection {
+  padding: 84px 0;
+}
+
+.sectionTint {
+  background: #eef3f8;
+}
+
+.pageHeroCompact {
+  padding: 58px 0 20px;
+  background: linear-gradient(180deg, #f7f9fc 0%, #eef3f8 100%);
+}
+
+.sectionIntro {
+  margin-bottom: 28px;
+}
+
+.sectionLabel {
+  margin: 0 0 10px;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.section h2,
+.serviceDetailSection h2 {
+  margin: 0 0 12px;
+  font-size: 40px;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  color: #0f172a;
+}
+
+.serviceCardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.serviceCard,
+.whyCard,
+.contactInfo,
+.contactForm,
+.detailCard {
+  background: #ffffff;
+  border: 1px solid #dbe2ea;
+  border-radius: 20px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.04);
+  overflow: hidden;
+}
+
+.serviceCardImage {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  background: #e5edf5;
+}
+
+.serviceCardBody {
+  padding: 24px;
+}
+
+.serviceCardBody h3 {
+  margin: 0 0 12px;
+  font-size: 22px;
+  line-height: 1.25;
+  color: #0f172a;
+}
+
+.serviceCardBody p {
+  margin: 0 0 16px;
+  color: #475569;
+  line-height: 1.75;
+}
+
+.whyGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.whyCard {
+  padding: 26px;
+}
+
+.whyCard h3 {
+  margin: 0 0 12px;
+  color: #0f172a;
+}
+
+.whyCard p {
+  margin: 0;
+  color: #475569;
+  line-height: 1.75;
+}
+
+.contactGrid,
+.serviceDetailGrid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 24px;
+}
+
+.contactInfo,
+.contactForm,
+.detailCard {
+  padding: 30px;
+}
+
+.contactList {
+  display: grid;
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.contactList strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #0f172a;
+}
+
+.contactList p {
+  margin: 0;
+  color: #475569;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.contactForm label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.contactForm input,
+.contactForm textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #cfd8e3;
+  border-radius: 12px;
+  background: #ffffff;
+  outline: none;
+  color: #111827;
+}
+
+.contactForm textarea {
+  resize: vertical;
+  margin-bottom: 18px;
+}
+
+.serviceDetailImage {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 1px solid #dbe2ea;
+}
+
+.detailList {
+  margin: 0 0 24px;
+  padding-left: 20px;
+  color: #475569;
+  line-height: 1.8;
+}
+
+@media (max-width: 980px) {
+  .heroGrid,
+  .serviceCardsGrid,
+  .whyGrid,
+  .contactGrid,
+  .serviceDetailGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1,
+  .pageTitle {
+    font-size: 42px;
+  }
+
+  .heroPanel {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .topbarInner {
+    align-items: flex-start;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    flex-direction: column;
+  }
+
+  .topbarRight {
+    width: 100%;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .nav,
+  .heroButtons,
+  .detailActions,
+  .centerRow {
+    gap: 12px;
+  }
+
+  .hero h1,
+  .pageTitle {
+    font-size: 34px;
+  }
+
+  .heroText,
+  .sectionText {
+    font-size: 16px;
+  }
+
+  .section h2,
+  .serviceDetailSection h2 {
+    font-size: 30px;
+  }
+
+  .heroPanel {
+    padding: 24px;
+  }
+
+  .heroPanel h2 {
+    font-size: 24px;
+  }
+
+  .countryList {
+  line-height: 1.8;
+}
+}
+.countryList {
+  line-height: 1.8;
 }
