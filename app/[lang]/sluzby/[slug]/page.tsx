@@ -37,13 +37,24 @@ export default async function ServiceDetailPage({ params }: Props) {
 
   const t = getTranslation(lang)
   const serviceText = service.translations[lang as keyof typeof service.translations]
+  const operatorLabel =
+    lang === 'de' ? 'Betreiber' : lang === 'en' ? 'Operator' : 'Provozovatel'
+  const registeredOfficeLabel =
+    lang === 'de' ? 'Sitz' : lang === 'en' ? 'Registered office' : 'Sídlo'
+  const dataBoxLabel =
+    lang === 'de' ? 'Datenbox' : lang === 'en' ? 'Data box' : 'Datová schránka'
 
   return (
     <main className="page">
       <header className="topbar">
         <div className="container topbarInner">
           <Link href={`/${lang}`} className="logo">
-            {t.siteName}
+            <img
+              src="/jspdcleaning-logo.png"
+              alt={`${t.siteName} logo`}
+              className="logoMark"
+            />
+            <span>{t.siteName}</span>
           </Link>
 
           <div className="topbarRight">
@@ -96,6 +107,28 @@ export default async function ServiceDetailPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      <footer className="siteFooter">
+        <div className="container siteFooterInner">
+          <div className="siteFooterDetails">
+            <p>
+              <strong>{operatorLabel}:</strong> JSPD Holding s.r.o.
+            </p>
+            <p>
+              <strong>IČO:</strong> 23415738
+            </p>
+            <p>
+              <strong>{registeredOfficeLabel}:</strong> Riegrova 394/17, 779 00 Olomouc
+            </p>
+            <p>
+              <strong>E-mail:</strong> jspdholding@gmail.com
+            </p>
+            <p>
+              <strong>{dataBoxLabel}:</strong> qifj4ye
+            </p>
+          </div>
+        </div>
+      </footer>
     </main>
   )
 }

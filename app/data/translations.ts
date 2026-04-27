@@ -69,7 +69,7 @@ export type TranslationMap = {
 
 export const translations: Record<Lang, TranslationMap> = {
   cs: {
-    siteName: "JSPD Cleaning s.r.o.",
+    siteName: "JSPD Cleaning",
     nav: {
       home: "Úvod",
       services: "Služby",
@@ -84,7 +84,7 @@ export const translations: Record<Lang, TranslationMap> = {
       callPrimary: "Nezávazná poptávka",
       callSecondary: "Zobrazit služby",
       highlights: ["Průmyslové provozy", "Úklid po stavbě", "Speciální zásahy"],
-      panelLabel: "JSPD Cleaning s.r.o.",
+      panelLabel: "JSPD Cleaning",
       panelTitle: "Profesionální úklid a odborné čištění pro firemní provozy",
       panelText:
         "Zajišťujeme pravidelný servis i specializované zásahy v administrativních, průmyslových a technických objektech. Rozsah prací přizpůsobujeme typu provozu i konkrétním požadavkům zákazníka.",
@@ -156,7 +156,7 @@ export const translations: Record<Lang, TranslationMap> = {
     },
   },
   en: {
-    siteName: "JSPD Cleaning s.r.o.",
+    siteName: "JSPD Cleaning",
     nav: {
       home: "Home",
       services: "Services",
@@ -171,7 +171,7 @@ export const translations: Record<Lang, TranslationMap> = {
       callPrimary: "Request a quote",
       callSecondary: "View services",
       highlights: ["Industrial facilities", "Post-construction cleaning", "Special tasks"],
-      panelLabel: "JSPD Cleaning s.r.o.",
+      panelLabel: "JSPD Cleaning",
       panelTitle: "Professional cleaning and technical maintenance for corporate facilities",
       panelText:
         "We deliver regular service and specialised interventions in administrative, industrial and technical facilities. The scope of work is adapted to the type of operation and the customer's specific requirements.",
@@ -243,7 +243,7 @@ export const translations: Record<Lang, TranslationMap> = {
     },
   },
   de: {
-    siteName: "JSPD Cleaning s.r.o.",
+    siteName: "JSPD Cleaning",
     nav: {
       home: "Startseite",
       services: "Leistungen",
@@ -258,7 +258,7 @@ export const translations: Record<Lang, TranslationMap> = {
       callPrimary: "Anfrage stellen",
       callSecondary: "Leistungen ansehen",
       highlights: ["Industriebetriebe", "Bauendreinigung", "Spezialarbeiten"],
-      panelLabel: "JSPD Cleaning s.r.o.",
+      panelLabel: "JSPD Cleaning",
       panelTitle: "Professionelle Reinigung und technische Pflege für Unternehmensanlagen",
       panelText:
         "Wir bieten regelmäßigen Service und spezielle Einsätze in administrativen, industriellen und technischen Objekten. Der Arbeitsumfang wird an die Art des Betriebs und die spezifischen Anforderungen des Kunden angepasst.",

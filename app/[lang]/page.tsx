@@ -52,6 +52,12 @@ export default async function Page({ params, searchParams }: Props) {
 
   const t = getTranslation(lang)
   const featured = services.slice(0, 6)
+  const operatorLabel =
+    lang === 'de' ? 'Betreiber' : lang === 'en' ? 'Operator' : 'Provozovatel'
+  const registeredOfficeLabel =
+    lang === 'de' ? 'Sitz' : lang === 'en' ? 'Registered office' : 'Sídlo'
+  const dataBoxLabel =
+    lang === 'de' ? 'Datenbox' : lang === 'en' ? 'Data box' : 'Datová schránka'
 
   const formTextByLang = {
     cs: {
@@ -89,7 +95,14 @@ export default async function Page({ params, searchParams }: Props) {
     <main className="page">
       <header className="topbar">
         <div className="container topbarInner">
-          <div className="logo">{t.siteName}</div>
+          <div className="logo">
+            <img
+              src="/jspdcleaning-logo.png"
+              alt={`${t.siteName} logo`}
+              className="logoMark"
+            />
+            <span>{t.siteName}</span>
+          </div>
 
           <div className="topbarRight">
             <nav className="nav">
@@ -204,7 +217,7 @@ export default async function Page({ params, searchParams }: Props) {
               </div>
               <div>
                 <strong>{t.contact.emailLabel}</strong>
-                <p>info@jspdcleaning.cz</p>
+                <p>cleaning@jspd.cz</p>
               </div>
               <div>
                 <strong>{t.contact.regionLabel}</strong>
@@ -241,6 +254,28 @@ export default async function Page({ params, searchParams }: Props) {
           />
         </div>
       </section>
+
+      <footer className="siteFooter">
+        <div className="container siteFooterInner">
+          <div className="siteFooterDetails">
+            <p>
+              <strong>{operatorLabel}:</strong> JSPD Holding s.r.o.
+            </p>
+            <p>
+              <strong>IČO:</strong> 23415738
+            </p>
+            <p>
+              <strong>{registeredOfficeLabel}:</strong> Riegrova 394/17, 779 00 Olomouc
+            </p>
+            <p>
+              <strong>E-mail:</strong> jspdholding@gmail.com
+            </p>
+            <p>
+              <strong>{dataBoxLabel}:</strong> qifj4ye
+            </p>
+          </div>
+        </div>
+      </footer>
     </main>
   )
 }
